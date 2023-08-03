@@ -1,0 +1,29 @@
+{"intents": [
+    {"tag": "permissions",
+     "patterns":["yes this makes sense","I understand"],
+     "responses":["To begin with, everything we discuss today is bound by strict confidentiality and no information will be disclosed unless we have your authority or are permitted or compelled to do so by law. In exceptional circumstances, we would disclose information to prevent crime or imminent serious physical harm being carried out. You may begin by describing your situation. May I begin the questions"],
+     "context":["init"]
+    },
+     {"tag": "threat_level_diagnostics",
+     "responses":["Have you or are you currently suffering from domestic violence? There are many different types of abuse such as: financial abuse, physical abuse, emotional/mental abuse, sexual abuse, spiritual abuse, visa abuse, digital abuse, intellectual abuse, pets and property abuse, verbal abuse, etc. Please click the button “Types of Abuse” in a new tab for a description of each type and some examples."],
+     "patterns":["ok","sure","okay","yes you may"],
+     "context":["permissions"]
+    },
+    {"tag":"physical",
+    "responses":["Can you describe what occurs in such situations? Please add as much detail as possible."],
+    "patterns":["I think my partner is physically abusive. She often gets violent and aggressive"],
+    "context":["threat_level_diagnostics"]
+    },
+    {"tag":"secondary_diagnostics",
+     "responses": ["When did this first begin and how often does this occur?","How long has this been occurring?","Have you ever tried to inflict harm back to them?","What is your relationship with the person inflicting this harm?"],
+ "context":["physical"],
+ "patterns":["Something will set her off and she will begin screaming, shouting, and throwing stuff. When it gets bad she sometimes gets physical and starts pushing, kicking, and punching me."]
+   },
+{"tag":"family",
+ "patterns":["I want me and my kids to be in a safe place. I don’t think I can continue my marriage with her.","Only my close friends. I can’t tell my family because they’ll worry. I’ve never called the police but our neighbours have called the police on us before because she was screaming and shouting."],"responses":["Have you ever told anyone about this? Have the police been involved?"],"context":["secondary_diagnostics"]},
+ {"tag":"client_conflict",
+  "patterns":["I’m at a loss for what to do. This is taking a toll on my mental health and not just physically."],
+"responses":["Thank you for telling me about your situation. Here are some possible steps you may want to take based on the answers you provided. If you would like legal assistance, please select the filters below and we will recommend lawyers based on that and the information you have given us."],"context":["last_diagnostics"]},
+{"tag":"last_diagnostics","patterns":["She wasn’t like this in the beginning. It started when she started working. It happens pretty regularly now, like once a week.","For about a year.","To be honest, there was a time where she tried to stab me with a knife so I kicked her hand.","she is my partner"],"context":["secondary_diagnostics"],"responses":["Are you worried about you or your family members’ safety?","What are you hoping to achieve through our chat?"]}
+]
+}
